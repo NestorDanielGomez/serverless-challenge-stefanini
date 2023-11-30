@@ -16,8 +16,8 @@ import { EmployeesModule } from './employees/employees.module';
       entities: [],
       autoLoadEntities: true,
       synchronize: true,
-
-    }), EmployeesModule],
+    }),
+    EmployeesModule],
   controllers: [],
   providers: [],
 })

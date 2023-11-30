@@ -1,26 +1,71 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Injectable, InternalServerErrorException, NotFoundException, Patch } from '@nestjs/common';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
+import { Employee } from './entities/employee.entity';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+
+
 
 @Injectable()
 export class EmployeesService {
-  create(createEmployeeDto: CreateEmployeeDto) {
-    return 'This action adds a new employee';
+  logger: any;
+
+  constructor(
+    @InjectRepository(Employee)
+    private readonly employeeRepository: Repository<Employee>,
+
+  ) { }
+
+  async create(createEmployeeDto: CreateEmployeeDto) {
+    try {
+      const newEmployee = await this.employeeRepository.save(createEmployeeDto)
+      return newEmployee;
+    } catch (error) {
+      this.handleDbExceptions(error)
+    }
+
   }
 
-  findAll() {
-    return `This action returns all employees`;
+  @Get('employees')
+  async findAll() {
+    const list = await this.employeeRepository.find({})
+    return list;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} employee`;
+
+  async findOne(id: string) {
+    const employee = await this.employeeRepository.findOneBy({ id })
+    if (!employee) throw new NotFoundException(`Employee with id:${id} not found`)
+    return employee;
+
+
   }
 
-  update(id: number, updateEmployeeDto: UpdateEmployeeDto) {
-    return `This action updates a #${id} employee`;
+  async update(id: string, updateEmployeeDto: UpdateEmployeeDto): Promise<Employee> {
+    await this.findOne(id)
+    const employee = await this.employeeRepository.preload({ id, ...updateEmployeeDto })
+    if (!employee) throw new NotFoundException(`Employee with id:${id} not found`)
+    return this.employeeRepository.save(employee);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} employee`;
+  async delete(id: string): Promise<string> {
+    const employeeToDelete = await this.findOne(id)
+    await this.employeeRepository.remove(employeeToDelete)
+    return `Employee with Id:${id} and Name:${employeeToDelete.nombre} deleted`;
   }
+
+
+
+  private handleDbExceptions(error: any) {
+
+    this.logger.error(error)
+    throw new InternalServerErrorException(`Unexpected error, check server logs`)
+  }
+
+
 }
+function ApiTags(arg0: string): (target: typeof EmployeesService) => void | typeof EmployeesService {
+  throw new Error('Function not implemented.');
+}
+

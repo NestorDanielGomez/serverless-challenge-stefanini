@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
+@Entity({ name: "employee" })
 export class Employee {
 
     @PrimaryGeneratedColumn("uuid")
@@ -9,7 +9,7 @@ export class Employee {
     @Column("text", { unique: true })
     dni: number
 
-    @Column("number")
+    @Column("int")
     edad: number
 
     @Column("text")
