@@ -19,7 +19,8 @@ export class EmployeesService {
 
   async create(createEmployeeDto: CreateEmployeeDto) {
     try {
-      const newEmployee = await this.employeeRepository.save(createEmployeeDto)
+      const newEmployee = this.employeeRepository.create(createEmployeeDto)
+      await this.employeeRepository.save(newEmployee)
       return newEmployee;
     } catch (error) {
       this.handleDbExceptions(error)
@@ -38,8 +39,6 @@ export class EmployeesService {
     const employee = await this.employeeRepository.findOneBy({ id })
     if (!employee) throw new NotFoundException(`Employee with id:${id} not found`)
     return employee;
-
-
   }
 
   async update(id: string, updateEmployeeDto: UpdateEmployeeDto): Promise<Employee> {
@@ -58,7 +57,12 @@ export class EmployeesService {
 
 
   private handleDbExceptions(error: any) {
-
+    if (error.code === "23505") {
+      throw new BadRequestException(error.detail)
+    }
+    if (error.code === "error-01") {
+      throw new BadRequestException(error.detail.replace("key", ""))
+    }
     this.logger.error(error)
     throw new InternalServerErrorException(`Unexpected error, check server logs`)
   }

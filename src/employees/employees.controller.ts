@@ -20,7 +20,7 @@ export class EmployeesController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): Promise<Employee> {
+  findOne(@Param('id', ParseUUIDPipe) id: string): Promise<Employee> {
     return this.employeesService.findOne(id);
   }
 
