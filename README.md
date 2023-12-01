@@ -74,10 +74,26 @@ https://sqrz84u6tc.execute-api.us-east-1.amazonaws.com/employee
 - Deploy de ServerLess sobre los pushes en la rama "main".
   /github/workflows/main.yml
 
-#### Todo
+#### Oportunidades de mejora:
 
 - Generar una tabla independiente para el cargo y relacionarla con la tabla de empleados.
 - Validaciones mas espeficas de tipo de dato a recibir.
 - Generar un objeto de configuracion para el manejo de las variables de entorno segun el stage (dev/prod).
 - Generar un endpoint "seed" que carge la base de datos local cuando se inicializa el proyecto, para ya tener "empleados" cargados para probar todos los endpoints.
 - Dockerizar (multi-stage) la aplicación ya terminada.
+
+#### Falto testing:
+
+-Empece con el testing de servicios y me lanzo el siguiente error:
+
+```
+" A circular dependency has been detected inside RootTestModule. Please, make sure that each side of a bidirectional relationships are decorated with "forwardRef()". Note that circular relationships
+between custom providers (e.g., factories) are not supported since functions cannot be called more than once."
+```
+
+Error que no pude resolver.
+Desgraciadamente me quede sin tiempo.. tengo que volver al trabajo.
+Les agradezco la oportunidad de poder hacer el desafio. Si me dan la posibilidad les prometo que no se van a arrepentir.
+Por esta oportunidad estoy dispuesto a renunciar a 17 años de antiguedad, comodidad y estabilidad en una empresa.
+Voy a hacer todo lo que sea necesario para tener exito.
+Saludos

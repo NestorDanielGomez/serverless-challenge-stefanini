@@ -9,7 +9,7 @@ export class Employee {
     id: string
 
     @ApiProperty({ example: "29054384", description: "Dni", uniqueItems: true })
-    @Column("text", { unique: true })
+    @Column("int", { unique: true })
     dni: number
 
     @ApiProperty({ example: "42", description: "Edad", uniqueItems: true })

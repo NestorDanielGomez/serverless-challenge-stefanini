@@ -36,7 +36,7 @@ export class EmployeesService {
   }
 
   async update(id: string, updateEmployeeDto: UpdateEmployeeDto): Promise<Employee> {
-    await this.findOne(id)
+
     const employee = await this.employeeRepository.preload({ id, ...updateEmployeeDto })
     if (!employee) throw new NotFoundException(`Employee with id:${id} not found`)
     return this.employeeRepository.save(employee);

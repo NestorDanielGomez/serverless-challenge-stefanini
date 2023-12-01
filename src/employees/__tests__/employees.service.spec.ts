@@ -2,8 +2,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { EntityManager, Repository } from 'typeorm';
-import { Employee as EmployeeEntity } from './entities/employee.entity';
-import { EmployeesService } from './employees.service';
+import { Employee as EmployeeEntity } from '../entities/employee.entity';
+import { EmployeesService } from '../employees.service';
 
 
 describe('EmployeesService', () => {
