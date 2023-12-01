@@ -28,17 +28,16 @@ $ npm install
 $ docker-compose up -d
 ```
 
-- Correr proyecto en modo desarrollo:
+- Correr proyecto:
+
+```bash
+$ npm run start:dev
+```
+
 - Link de swagger (con la App levantada en modo dev) para ver detalle de los Endpoints:
   ```
   http://localhost:3000/api#/employee/
   ```
-
-````
-
-```bash
-  $ npm run start:dev
-````
 
 #### Llevar la aplicacion hacia AWS.
 
@@ -93,7 +92,11 @@ between custom providers (e.g., factories) are not supported since functions can
 
 Error que no pude resolver.
 Desgraciadamente me quede sin tiempo.. tengo que volver al trabajo.
-Les agradezco la oportunidad de poder hacer el desafio. Si me dan la posibilidad les prometo que no se van a arrepentir.
+
+### GRACIAS
+
+Les agradezco la oportunidad que me dieron de hacer el desafio.
+Si me dan la posibilidad de trabajar con ustedes les prometo que no se van a arrepentir.
 Por esta oportunidad estoy dispuesto a renunciar a 17 años de antiguedad, comodidad y estabilidad en una empresa.
 Voy a hacer todo lo que sea necesario para tener exito.
 Saludos
