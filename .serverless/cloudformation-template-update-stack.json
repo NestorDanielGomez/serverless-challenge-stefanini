@@ -163,7 +163,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-challenge-service/production/1701380218844-2023-11-30T21:36:58.844Z/serverless-challenge-service.zip"
+          "S3Key": "serverless/serverless-challenge-service/production/1701399926075-2023-12-01T03:05:26.075Z/serverless-challenge-service.zip"
         },
         "Handler": "dist/lambda.handler",
         "Runtime": "nodejs16.x",
@@ -184,14 +184,14 @@
         "ApiLogGroup"
       ]
     },
-    "ApiLambdaVersion5usHepW2UVodx220hpvhC34KnBCMNkmLfYmeNbgTaI": {
+    "ApiLambdaVersionIwMu4AzYintf8ltn2kimozcXhXndEb70AWsjVqg3eo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "8r+odh7W6BqDpzaXWeJUevoPw/zb9m7slmLxUZJzikI="
+        "CodeSha256": "RIiFfwTXpxFsgejcbCiLYcIyOPlcLZkNpCp50lt1SVw="
       }
     },
     "HttpApi": {
@@ -302,7 +302,7 @@
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersion5usHepW2UVodx220hpvhC34KnBCMNkmLfYmeNbgTaI"
+        "Ref": "ApiLambdaVersionIwMu4AzYintf8ltn2kimozcXhXndEb70AWsjVqg3eo"
       },
       "Export": {
         "Name": "sls-serverless-challenge-service-production-ApiLambdaFunctionQualifiedArn"

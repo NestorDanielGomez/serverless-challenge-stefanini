@@ -26,23 +26,27 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## Instalación del proyecto.
+
+-Clonar proyecto
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+- Clonar y renombrar el archivo `.env.template` por `.env`.
+- Cambiar las variables de entorno segun ambito de desarrollo.
+
+- Levantar la Base de datos.
 
 ```bash
-# development
-$ npm run start
+$ docker-compose up -d
+```
 
-# watch mode
-$ npm run start:dev
+- Correr proyecto en modo desarrollo:
 
-# production mode
-$ npm run start:prod
+```bash
+  $ npm run start:dev
 ```
 
 ## Test

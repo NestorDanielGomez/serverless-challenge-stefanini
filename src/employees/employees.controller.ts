@@ -1,9 +1,9 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, ParseUUIDPipe } from '@nestjs/common';
 import { EmployeesService } from './employees.service';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
 import { Employee } from './entities/employee.entity';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags("Employee")
 @Controller('employee')
