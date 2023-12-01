@@ -2,88 +2,82 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
 </p>
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
-
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+
+- Author - [Néstor Daniel Gomez](https://www.linkedin.com/in/nestordanielgomez1/)
+- Website - [hhttps://portfolio-nestor-gomez.netlify.app/](https://portfolio-nestor-gomez.netlify.app/)
+- Github - [@repositories](https://github.com/NestorDanielGomez?tab=repositories)
 
 ## Instalación del proyecto.
 
--Clonar proyecto
+- Clonar proyecto
 
 ```bash
 $ npm install
 ```
 
 - Clonar y renombrar el archivo `.env.template` por `.env`.
-- Cambiar las variables de entorno segun ambito de desarrollo.
-
-- Levantar la Base de datos.
+- Cambiar las variables de entorno segun ambito de desarrollo. Dentro el archivo .env se detalla que variables utilizar según el caso de uso.
+- Levantar la Base de datos:
 
 ```bash
 $ docker-compose up -d
 ```
 
 - Correr proyecto en modo desarrollo:
+- Link de swagger (con la App levantada en modo dev) para ver detalle de los Endpoints:
+  ```
+  http://localhost:3000/api#/employee/
+  ```
+
+````
 
 ```bash
   $ npm run start:dev
+````
+
+#### Llevar la aplicacion hacia AWS.
+
+- Con las credenciales de AWS ingresadas por consola.
+  ejecutar:
+
+```bash
+ serverless deploy
 ```
 
 #### DEPLOY EN AWS:
 
+```
+https://sqrz84u6tc.execute-api.us-east-1.amazonaws.com/employee
+```
+
+- Ejemplo getAll y GetOne desde la app desplegada en aws
+
+  - <img src="/public/getall+getOne.gif" />
+
 - Gateway de Api para manejo de las peticiones.
   <img src="./public/aws-gateway-api.png" />
 
-- Funcion lambda para ejecutar las peticiones.
+- Función lambda para ejecutar las peticiones.
 - ARN de la función:arn: aws:lambda:us-east-1:703278227903:function:serverless-challenge-service-production-api
-- <img src="/public/lambda.png" />
+  <img src="/public/lambda.png" />
 
 - Nombre de recurso de Amazon (ARN): arn:aws:rds:us-east-1:703278227903:db:db-challenge-instance
-- <img src="/public/rds_postgres.png" />
+  <img src="/public/rds_postgres.png" />
 
-## Test
+#### CI/CD.
 
-```bash
-# unit tests
-$ npm run test
+- Deploy de ServerLess sobre los pushes en la rama "main".
+  /github/workflows/main.yml
 
-# e2e tests
-$ npm run test:e2e
+#### Todo
 
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- Generar una tabla independiente para el cargo y relacionarla con la tabla de empleados.
+- Validaciones mas espeficas de tipo de dato a recibir.
+- Generar un objeto de configuracion para el manejo de las variables de entorno segun el stage (dev/prod).
+- Generar un endpoint "seed" que carge la base de datos local cuando se inicializa el proyecto, para ya tener "empleados" cargados para probar todos los endpoints.
+- Dockerizar (multi-stage) la aplicación ya terminada.

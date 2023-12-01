@@ -179,7 +179,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-challenge-service/production/1701399926075-2023-12-01T03:05:26.075Z/serverless-challenge-service.zip"
+                "S3Key": "serverless/serverless-challenge-service/production/1701421227539-2023-12-01T09:00:27.539Z/serverless-challenge-service.zip"
               },
               "Handler": "dist/lambda.handler",
               "Runtime": "nodejs16.x",
@@ -200,14 +200,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersionIwMu4AzYintf8ltn2kimozcXhXndEb70AWsjVqg3eo": {
+          "ApiLambdaVersionPmLbmZDV1a9QcNv80ZkN9UVUyAEOdJZLzWZ8iy3Cko": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "RIiFfwTXpxFsgejcbCiLYcIyOPlcLZkNpCp50lt1SVw="
+              "CodeSha256": "AvoQvcvXbCMAWkvXpUzDPnCseToD0nt26b8AwVrYmiQ="
             }
           },
           "HttpApi": {
@@ -315,7 +315,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionIwMu4AzYintf8ltn2kimozcXhXndEb70AWsjVqg3eo"
+              "Ref": "ApiLambdaVersionPmLbmZDV1a9QcNv80ZkN9UVUyAEOdJZLzWZ8iy3Cko"
             },
             "Export": {
               "Name": "sls-serverless-challenge-service-production-ApiLambdaFunctionQualifiedArn"
@@ -465,7 +465,7 @@
         "timeout": 15,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersionIwMu4AzYintf8ltn2kimozcXhXndEb70AWsjVqg3eo"
+        "versionLogicalId": "ApiLambdaVersionPmLbmZDV1a9QcNv80ZkN9UVUyAEOdJZLzWZ8iy3Cko"
       }
     },
     "configValidationMode": "warn",
@@ -487,7 +487,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-challenge-service/production/1701399926075-2023-12-01T03:05:26.075Z",
+    "artifactDirectoryName": "serverless/serverless-challenge-service/production/1701421227539-2023-12-01T09:00:27.539Z",
     "artifact": "serverless-challenge-service.zip"
   }
 }
