@@ -3,12 +3,16 @@ import { EmployeesService } from './employees.service';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
 import { Employee } from './entities/employee.entity';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags("Employee")
 @Controller('employee')
 export class EmployeesController {
   constructor(
     private readonly employeesService: EmployeesService) { }
 
+  @ApiResponse({ status: 201, description: "Employee created successfully", type: Employee })
+  @ApiResponse({ status: 400, description: "Bad Request" })
   @Post()
   create(@Body() createEmployeeDto: CreateEmployeeDto): Promise<Employee> {
     return this.employeesService.create(createEmployeeDto);
