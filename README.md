@@ -81,17 +81,11 @@ https://sqrz84u6tc.execute-api.us-east-1.amazonaws.com/employee
 - Generar un endpoint "seed" que carge la base de datos local cuando se inicializa el proyecto, para ya tener "empleados" cargados para probar todos los endpoints.
 - Dockerizar (multi-stage) la aplicación ya terminada.
 
-#### Falto testing:
-
--Empece con el testing de servicios y me lanzo el siguiente error:
+#### Testing Unitario:
 
 ```
-" A circular dependency has been detected inside RootTestModule. Please, make sure that each side of a bidirectional relationships are decorated with "forwardRef()". Note that circular relationships
-between custom providers (e.g., factories) are not supported since functions cannot be called more than once."
+npm run test
 ```
-
-Error que no pude resolver.
-Desgraciadamente me quede sin tiempo.. tengo que volver al trabajo.
 
 ### GRACIAS
 
