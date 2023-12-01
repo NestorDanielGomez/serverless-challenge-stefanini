@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { MinLength, MaxLength } from 'class-validator';
 
 @Entity({ name: "employee" })
 export class Employee {
@@ -12,8 +13,8 @@ export class Employee {
     @Column("int", { unique: true })
     dni: number
 
-    @ApiProperty({ example: "42", description: "Edad", uniqueItems: true })
-    @Column("int")
+    @ApiProperty({ example: 42, description: "Edad", uniqueItems: true })
+    @Column('int')
     edad: number
 
     @ApiProperty({ example: "Nestor", description: "Nombre", uniqueItems: true })

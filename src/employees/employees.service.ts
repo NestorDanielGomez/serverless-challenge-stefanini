@@ -14,7 +14,7 @@ export class EmployeesService {
     private readonly employeeRepository: Repository<Employee>,
   ) { }
 
-  async create(createEmployeeDto: CreateEmployeeDto) {
+  async create(createEmployeeDto: CreateEmployeeDto): Promise<Employee> {
     try {
       const newEmployee = this.employeeRepository.create(createEmployeeDto)
       await this.employeeRepository.save(newEmployee)
@@ -24,12 +24,12 @@ export class EmployeesService {
     }
   }
 
-  async findAll() {
+  async findAll(): Promise<Employee[]> {
     const list = await this.employeeRepository.find({})
     return list;
   }
 
-  async findOne(id: string) {
+  async findOne(id: string): Promise<Employee> {
     const employee = await this.employeeRepository.findOneBy({ id })
     if (!employee) throw new NotFoundException(`Employee with id:${id} not found`)
     return employee;

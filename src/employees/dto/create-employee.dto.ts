@@ -1,14 +1,19 @@
 import { ApiProperty } from "@nestjs/swagger"
-import { IsNumber, IsPositive, IsString, MaxLength, MinLength } from "class-validator"
+import { IsInt, IsPositive, IsString, MinLength, Max, Min } from "class-validator"
 
 export class CreateEmployeeDto {
 
-    @ApiProperty({ type: "number", description: "DNI", uniqueItems: true })
-    @IsNumber()
+    @ApiProperty({ type: "number", uniqueItems: true, description: "DNI (debe tener 8 números)" })
+    @IsInt()
+    @IsPositive()
+    @Min(10000000, { message: "el dni debe tener 8 números" })
+    @Max(99999999, { message: "el dni debe tener 8 números" })
     dni: number
 
-    @ApiProperty({ type: "number", description: "Edad", minLength: 1 })
-    @IsNumber()
+    @ApiProperty({ type: "number", description: "Edad (entre 18 y 65)", minLength: 1 })
+    @IsInt()
+    @Min(18, { message: "Edad (entre 18 y 65)" })
+    @Max(65, { message: "Edad (entre 18 y 65)" })
     @IsPositive()
     edad: number
 
@@ -19,6 +24,6 @@ export class CreateEmployeeDto {
 
     @ApiProperty({ type: "string", description: "Cargo", })
     @IsString()
-    @IsString()
+    @MinLength(3)
     cargo: string
 }
