@@ -49,6 +49,18 @@ $ docker-compose up -d
   $ npm run start:dev
 ```
 
+#### DEPLOY EN AWS:
+
+- Gateway de Api para manejo de las peticiones.
+  <img src="./public/aws-gateway-api.png" />
+
+- Funcion lambda para ejecutar las peticiones.
+- ARN de la función:arn: aws:lambda:us-east-1:703278227903:function:serverless-challenge-service-production-api
+- <img src="/public/lambda.png" />
+
+- Nombre de recurso de Amazon (ARN): arn:aws:rds:us-east-1:703278227903:db:db-challenge-instance
+- <img src="/public/rds_postgres.png" />
+
 ## Test
 
 ```bash
