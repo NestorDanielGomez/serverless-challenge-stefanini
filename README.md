@@ -73,11 +73,12 @@ https://sqrz84u6tc.execute-api.us-east-1.amazonaws.com/employee
 - Deploy de ServerLess sobre los pushes en la rama "main".
   /github/workflows/main.yml
 
-#### Oportunidades de mejora:
+#### TODOS:
 
 - Generar una tabla independiente para el cargo y relacionarla con la tabla de empleados.
 - Generar un objeto de configuracion para el manejo de las variables de entorno segun el stage (dev/prod).
 - Generar un endpoint "seed" que carge la base de datos local cuando se inicializa el proyecto, para ya tener "empleados" cargados para probar todos los endpoints.
+- Paginación y Offset en la peticiones de empleados.
 - Dockerizar (multi-stage) la aplicación ya terminada.
 
 #### Testing Unitario:
