@@ -76,7 +76,6 @@ https://sqrz84u6tc.execute-api.us-east-1.amazonaws.com/employee
 #### Oportunidades de mejora:
 
 - Generar una tabla independiente para el cargo y relacionarla con la tabla de empleados.
-- Validaciones mas espeficas de tipo de dato a recibir.
 - Generar un objeto de configuracion para el manejo de las variables de entorno segun el stage (dev/prod).
 - Generar un endpoint "seed" que carge la base de datos local cuando se inicializa el proyecto, para ya tener "empleados" cargados para probar todos los endpoints.
 - Dockerizar (multi-stage) la aplicación ya terminada.
