@@ -12,6 +12,10 @@
 - Website - [hhttps://portfolio-nestor-gomez.netlify.app/](https://portfolio-nestor-gomez.netlify.app/)
 - Github - [@repositories](https://github.com/NestorDanielGomez?tab=repositories)
 
+## Stack Utilizado:
+
+- NestJs | PostgreSql (TypeOrm) | Docker | ServerLess | Github Actions | AWS Lambda | AWS RDS(Postgres) | AWS Api Gateway | GitHub
+
 ## Instalación del proyecto.
 
 - Clonar proyecto

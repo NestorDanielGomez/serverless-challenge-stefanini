@@ -13,6 +13,6 @@ import { Employee } from './entities/employee.entity';
     ConfigModule,
     TypeOrmModule.forFeature([Employee])
   ],
-  //exports: [TypeOrmModule, EmployeesModule, EmployeesService]
+
 })
 export class EmployeesModule { }
